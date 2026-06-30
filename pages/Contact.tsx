@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Map Placeholder */}
-            <div className="w-full h-[300px] bg-gray-200 dark:bg-gray-800 rounded-3xl overflow-hidden mt-8 shadow-inner border border-gray-300 dark:border-gray-700">
+            <div className="w-full h-[300px] bg-gray-200 dark:bg-gray-800 rounded-3xl overflow-hidden mt-8 shadow-inner border border-gray-300 dark:border-gray-700 relative group">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.12158081356!2d100.87634538389366!3d3.995415337016211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cb47b9e0151435%3A0xa9fd4dabe94740e4!2sUSIN%20FARM%20ENTERPRISE!5e0!3m2!1sen!2smy!4v1782781843588!5m2!1sen!2smy" 
                 width="100%" 
@@ -119,6 +119,17 @@ const Contact: React.FC = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Google Maps Location"
               ></iframe>
+            </div>
+            <div className="flex justify-end mt-4">
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=Usin+Farm+Enterprise,Jalan+Kampung+Sungai+Besar,Teluk+Intan,Perak" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-farm-600 hover:bg-farm-700 text-white px-6 py-3 rounded-xl font-medium transition-colors shadow-sm hover:shadow-md"
+              >
+                <MapPin size={18} />
+                {t('Get Directions')}
+              </a>
             </div>
           </motion.div>
         </div>
