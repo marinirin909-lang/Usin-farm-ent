@@ -1,0 +1,6 @@
+{
+  "name": "Usin Farm Enterprise",
+  "description": "Laman web rasmi Usin Farm Enterprise yang menjual produk pertanian dan penternakan. Lengkap dengan Pembantu AI (Pakar, Carian Web, dan Peta).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
