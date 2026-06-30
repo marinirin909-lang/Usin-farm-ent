@@ -74,8 +74,8 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
-    // Express v5 requires (.*) for catch-all routing
-    app.get('(.*)', (req, res, next) => {
+    // Express v5 catch-all routing using RegExp
+    app.get(/.*/, (req, res, next) => {
       res.sendFile(path.join(distPath, 'index.html'), (err) => {
         if (err) next(err);
       });

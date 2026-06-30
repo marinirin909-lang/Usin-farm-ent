@@ -6,6 +6,21 @@ import { useLanguage } from '../components/LanguageContext';
 const Gallery: React.FC = () => {
   const { t } = useLanguage();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
+
   const items = [
     { type: 'video', src: 'https://6a43190294555f542c2e4a86.imgix.net/video/pemotongan-daging.mp4' },
     { type: 'video', src: 'https://6a43190294555f542c2e4a86.imgix.net/video/makanan-ternakan.mp4' },
@@ -40,15 +55,19 @@ const Gallery: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {items.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: (i % 6) * 0.1 }}
-              className="group aspect-square rounded-2xl overflow-hidden relative shadow-md hover:shadow-xl cursor-pointer bg-gray-100 dark:bg-gray-800"
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="group aspect-square rounded-2xl overflow-hidden relative shadow-md hover:shadow-2xl cursor-pointer bg-gray-100 dark:bg-gray-800 transition-all duration-300"
             >
               <div className="absolute inset-0 bg-farm-900/40 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center pointer-events-none">
                 <span className="text-white font-medium px-6 py-2 border-2 border-white rounded-full">
@@ -74,7 +93,7 @@ const Gallery: React.FC = () => {
               )}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </PageTransition>
   );

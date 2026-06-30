@@ -6,6 +6,21 @@ import { useLanguage } from '../components/LanguageContext';
 const Products: React.FC = () => {
   const { t } = useLanguage();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  };
+
   const categories = [
     {
       title: "Cattle Farming",
@@ -59,12 +74,19 @@ const Products: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {categories.map((cat, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-md border border-transparent dark:border-gray-700 group transition-colors duration-300"
+              variants={itemVariants}
+              whileHover={{ y: -10 }}
+              className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-md border border-transparent dark:border-gray-700 group transition-colors duration-300 hover:shadow-2xl"
             >
               <div className="h-72 overflow-hidden relative">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
@@ -86,7 +108,7 @@ const Products: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </PageTransition>
   );
