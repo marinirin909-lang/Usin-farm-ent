@@ -16,7 +16,9 @@
     "lucide-react": "^0.553.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.18.1"
+    "react-router-dom": "^7.18.1",
+    "rss-parser": "^3.13.0",
+    "yahoo-finance2": "^3.15.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

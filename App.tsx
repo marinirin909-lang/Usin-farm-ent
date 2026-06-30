@@ -9,7 +9,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import Sustainability from './pages/Sustainability';
-import News from './pages/News';
+import MarketNews from './pages/MarketNews';
 import Careers from './pages/Careers';
 import FAQ from './pages/FAQ';
 import { LanguageProvider } from './components/LanguageContext';
@@ -28,7 +28,7 @@ const AnimatedRoutes = () => {
           <Route path="services" element={<Services />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="sustainability" element={<Sustainability />} />
-          <Route path="news" element={<News />} />
+          <Route path="market" element={<MarketNews />} />
           <Route path="careers" element={<Careers />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="contact" element={<Contact />} />

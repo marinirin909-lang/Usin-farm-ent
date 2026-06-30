@@ -24,32 +24,32 @@ const Products: React.FC = () => {
   const categories = [
     {
       title: "Cattle Farming",
-      image: "https://6a43190294555f542c2e4a86.imgix.net/kandang-lembu.jpg",
+      image: "/src/assets/images/cattle_farming_1782846491474.jpg",
       items: ["Quality Beef Cattle", "Local & Crossbreed Cattle", "Healthy & Well-cared"]
     },
     {
       title: "Broiler Chicken",
-      image: "https://6a43190294555f542c2e4a86.imgix.net/ayam-daging-farm.jpg",
+      image: "/src/assets/images/broiler_chicken_1782846502873.jpg",
       items: ["Fresh Broiler Meat", "High Quality Diet", "Optimum Growth"]
     },
     {
       title: "Free-range Chicken",
-      image: "https://6a43190294555f542c2e4a86.imgix.net/ayam-kampung-bebas.jpg",
+      image: "/src/assets/images/free_range_chicken_1782846513412.jpg",
       items: ["Authentic Free-range Chicken", "Free-roaming Farm", "Firm & Tasty Meat"]
     },
     {
       title: "Duck Farming",
-      image: "https://6a43190294555f542c2e4a86.imgix.net/itik-kolam.jpg",
+      image: "/src/assets/images/duck_farming_1782846525465.jpg",
       items: ["Meat Ducks", "Laying Ducks", "Clean Farming Environment"]
     },
     {
       title: "Fresh Duck Eggs",
-      image: "https://6a43190294555f542c2e4a86.imgix.net/telur-itik-segar.jpg",
+      image: "/src/assets/images/fresh_duck_eggs_1782846535474.jpg",
       items: ["Grade A Fresh Duck Eggs", "Beautiful & Quality Yolks", "Rich in Nutrients"]
     },
     {
       title: "Salted Eggs",
-      image: "https://6a43190294555f542c2e4a86.imgix.net/proses-telur-masin.jpg",
+      image: "/src/assets/images/salted_eggs_1782846545492.jpg",
       items: ["Authentic Salted Eggs", "Traditional Processing", "Suitable for Various Dishes"]
     }
   ];

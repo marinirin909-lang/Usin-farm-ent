@@ -2,6 +2,10 @@ import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, ThinkingLevel } from "@google/genai";
+import yahooFinance from 'yahoo-finance2';
+import Parser from 'rss-parser';
+
+const parser = new Parser();
 
 async function startServer() {
   const app = express();
@@ -61,6 +65,61 @@ async function startServer() {
     } catch (error) {
       console.error("Gemini Error:", error);
       res.status(500).json({ error: "Gagal menyambung ke sistem AI. Sila cuba lagi." });
+    }
+  });
+
+  // API Route for Market Prices
+  app.get("/api/prices", async (req, res) => {
+    try {
+      const symbols = [
+        { symbol: 'LE=F', name: 'Lembu Hidup (Live Cattle)', unit: 'USD / lb' },
+        { symbol: 'HE=F', name: 'Daging Babi (Lean Hogs)', unit: 'USD / lb' },
+        { symbol: 'ZC=F', name: 'Jagung (Corn)', unit: 'USD / gantang' },
+        { symbol: 'ZS=F', name: 'Kacang Soya (Soybean)', unit: 'USD / gantang' },
+        { symbol: 'KE=F', name: 'Gandum (Wheat)', unit: 'USD / gantang' },
+        { symbol: 'FCPO.KL', name: 'Minyak Sawit Mentah', unit: 'MYR / tan' }
+      ];
+      
+      const quotes = await Promise.all(
+        symbols.map(async (s) => {
+          try {
+            const quote = await yahooFinance.quote(s.symbol);
+            return {
+              ...s,
+              price: quote.regularMarketPrice,
+              change: quote.regularMarketChange,
+              changePercent: quote.regularMarketChangePercent,
+              currency: quote.currency
+            };
+          } catch (e) {
+            return { ...s, error: 'Tiada data' };
+          }
+        })
+      );
+      
+      res.json(quotes);
+    } catch (error) {
+      console.error('Error fetching prices:', error);
+      res.status(500).json({ error: 'Gagal mendapatkan harga pasaran' });
+    }
+  });
+
+  // API Route for Agriculture News
+  app.get("/api/news", async (req, res) => {
+    try {
+      const feed = await parser.parseURL('https://news.google.com/rss/search?q=pertanian+OR+penternakan+malaysia&hl=ms&gl=MY&ceid=MY:ms');
+      
+      const news = feed.items.slice(0, 10).map(item => ({
+        title: item.title,
+        link: item.link,
+        pubDate: item.pubDate,
+        source: item.source || 'Berita Pertanian',
+      }));
+      
+      res.json(news);
+    } catch (error) {
+      console.error('Error fetching news:', error);
+      res.status(500).json({ error: 'Gagal mendapatkan berita' });
     }
   });
 

@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { name: 'Services', path: '/services' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Sustainability', path: '/sustainability' },
-  { name: 'News', path: '/news' },
+  { name: 'Market & News', path: '/market' },
   { name: 'Careers', path: '/careers' },
   { name: 'FAQ', path: '/faq' },
   { name: 'Contact', path: '/contact' },
