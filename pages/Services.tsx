@@ -67,6 +67,36 @@ const Services: React.FC = () => {
             </motion.div>
           ))}
         </div>
+        
+        {/* Project Planning Section */}
+        <div className="mt-32 max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-serif font-bold text-farm-900 dark:text-farm-400 mb-4"
+            >
+              {t('Project Planning')}
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              className="text-lg text-gray-600 dark:text-gray-300"
+            >
+              {t('Review our strategic agricultural development and expansion plans.')}
+            </motion.p>
+          </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+            className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+          >
+            <iframe 
+              src="https://gamma.app/embed/9y4blgh6uhhlyv8" 
+              style={{ width: "100%", height: "100%" }}
+              allow="fullscreen" 
+              title="pick deck agripulse ai"
+            />
+          </motion.div>
+        </div>
       </div>
     </PageTransition>
   );

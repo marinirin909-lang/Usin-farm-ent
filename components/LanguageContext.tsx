@@ -109,6 +109,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'Farm Tours & Education': 'Lawatan Ladang & Pendidikan',
     'Immersive guided tours for schools and families to learn about where their food comes from and how it\'s grown.': 'Lawatan berpandu yang menarik untuk sekolah dan keluarga untuk mengetahui dari mana makanan mereka datang dan bagaimana ia ditanam.',
     'Inquire Now &rarr;': 'Tanya Sekarang &rarr;',
+    'Project Planning': 'Perancangan Projek',
+    'Review our strategic agricultural development and expansion plans.': 'Semak pelan pembangunan dan pengembangan strategik pertanian kami.',
     // Gallery
     'Farm Gallery': 'Galeri Ladang',
     'Take a visual tour through Usin Farm Enterprise. From our golden harvests to our healthy livestock.': 'Lakukan lawatan visual melalui Usin Farm Enterprise. Dari hasil tuaian emas kami hingga ke ternakan yang sihat.',
@@ -282,6 +284,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'Farm Tours & Education': 'Farm Tours & Education',
     'Immersive guided tours for schools and families to learn about where their food comes from and how it\'s grown.': 'Immersive guided tours for schools and families to learn about where their food comes from and how it\'s grown.',
     'Inquire Now &rarr;': 'Inquire Now &rarr;',
+    'Project Planning': 'Project Planning',
+    'Review our strategic agricultural development and expansion plans.': 'Review our strategic agricultural development and expansion plans.',
     // Gallery
     'Farm Gallery': 'Farm Gallery',
     'Take a visual tour through Usin Farm Enterprise. From our golden harvests to our healthy livestock.': 'Take a visual tour through Usin Farm Enterprise. From our golden harvests to our healthy livestock.',

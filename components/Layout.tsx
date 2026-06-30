@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Menu, X, MapPin, Phone, Mail, Leaf, Facebook, Instagram, Twitter, Globe, Sun, Moon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import AIChat from './AIChat';
 import { useLanguage } from './LanguageContext';
 import { useTheme } from './ThemeContext';
@@ -26,6 +26,13 @@ const Layout: React.FC = () => {
   const { t, language, setLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -42,6 +49,10 @@ const Layout: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1.5 bg-farm-500 z-[60] origin-left"
+        style={{ scaleX }}
+      />
       {/* Top Contact Bar */}
       <div className="hidden md:flex bg-farm-900 text-farm-50 text-xs py-2 px-6 justify-between items-center">
         <div className="flex gap-6">

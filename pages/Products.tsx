@@ -3,6 +3,13 @@ import { motion } from 'framer-motion';
 import { PageTransition } from '../components/PageTransition';
 import { useLanguage } from '../components/LanguageContext';
 
+import cattleFarmingImg from '../src/assets/images/cattle_farming_1782846491474.jpg';
+import broilerChickenImg from '../src/assets/images/broiler_chicken_1782846502873.jpg';
+import freeRangeChickenImg from '../src/assets/images/free_range_chicken_1782846513412.jpg';
+import duckFarmingImg from '../src/assets/images/duck_farming_1782846525465.jpg';
+import freshDuckEggsImg from '../src/assets/images/fresh_duck_eggs_1782846535474.jpg';
+import saltedEggsImg from '../src/assets/images/salted_eggs_1782846545492.jpg';
+
 const Products: React.FC = () => {
   const { t } = useLanguage();
 
@@ -24,32 +31,32 @@ const Products: React.FC = () => {
   const categories = [
     {
       title: "Cattle Farming",
-      image: "/src/assets/images/cattle_farming_1782846491474.jpg",
+      image: cattleFarmingImg,
       items: ["Quality Beef Cattle", "Local & Crossbreed Cattle", "Healthy & Well-cared"]
     },
     {
       title: "Broiler Chicken",
-      image: "/src/assets/images/broiler_chicken_1782846502873.jpg",
+      image: broilerChickenImg,
       items: ["Fresh Broiler Meat", "High Quality Diet", "Optimum Growth"]
     },
     {
       title: "Free-range Chicken",
-      image: "/src/assets/images/free_range_chicken_1782846513412.jpg",
+      image: freeRangeChickenImg,
       items: ["Authentic Free-range Chicken", "Free-roaming Farm", "Firm & Tasty Meat"]
     },
     {
       title: "Duck Farming",
-      image: "/src/assets/images/duck_farming_1782846525465.jpg",
+      image: duckFarmingImg,
       items: ["Meat Ducks", "Laying Ducks", "Clean Farming Environment"]
     },
     {
       title: "Fresh Duck Eggs",
-      image: "/src/assets/images/fresh_duck_eggs_1782846535474.jpg",
+      image: freshDuckEggsImg,
       items: ["Grade A Fresh Duck Eggs", "Beautiful & Quality Yolks", "Rich in Nutrients"]
     },
     {
       title: "Salted Eggs",
-      image: "/src/assets/images/salted_eggs_1782846545492.jpg",
+      image: saltedEggsImg,
       items: ["Authentic Salted Eggs", "Traditional Processing", "Suitable for Various Dishes"]
     }
   ];

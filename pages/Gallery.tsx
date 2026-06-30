@@ -3,6 +3,16 @@ import { motion } from 'framer-motion';
 import { PageTransition } from '../components/PageTransition';
 import { useLanguage } from '../components/LanguageContext';
 
+import freshDuckEggsImg from '../src/assets/images/fresh_duck_eggs_1782846535474.jpg';
+import saltedEggsImg from '../src/assets/images/salted_eggs_1782846545492.jpg';
+import cattleFarmingImg from '../src/assets/images/cattle_farming_1782846491474.jpg';
+import broilerChickenImg from '../src/assets/images/broiler_chicken_1782846502873.jpg';
+import farmPastureImg from '../src/assets/images/farm_pasture_1782846603942.jpg';
+import duckFarmingImg from '../src/assets/images/duck_farming_1782846525465.jpg';
+import farmTractorImg from '../src/assets/images/farm_tractor_1782846581667.jpg';
+import farmHarvestImg from '../src/assets/images/farm_harvest_1782846592629.jpg';
+import freeRangeChickenImg from '../src/assets/images/free_range_chicken_1782846513412.jpg';
+
 const Gallery: React.FC = () => {
   const { t } = useLanguage();
 
@@ -27,15 +37,15 @@ const Gallery: React.FC = () => {
     { type: 'video', src: 'https://6a43190294555f542c2e4a86.imgix.net/video/lembu-padang.mp4' },
     { type: 'video', src: 'https://6a43190294555f542c2e4a86.imgix.net/video/itik-kolam.mp4' },
     { type: 'video', src: 'https://6a43190294555f542c2e4a86.imgix.net/video/ayam-kampung.mp4' },
-    { type: 'image', src: '/src/assets/images/fresh_duck_eggs_1782846535474.jpg' },
-    { type: 'image', src: '/src/assets/images/salted_eggs_1782846545492.jpg' },
-    { type: 'image', src: '/src/assets/images/cattle_farming_1782846491474.jpg' },
-    { type: 'image', src: '/src/assets/images/broiler_chicken_1782846502873.jpg' },
-    { type: 'image', src: '/src/assets/images/farm_pasture_1782846603942.jpg' },
-    { type: 'image', src: '/src/assets/images/duck_farming_1782846525465.jpg' },
-    { type: 'image', src: '/src/assets/images/farm_tractor_1782846581667.jpg' },
-    { type: 'image', src: '/src/assets/images/farm_harvest_1782846592629.jpg' },
-    { type: 'image', src: '/src/assets/images/free_range_chicken_1782846513412.jpg' },
+    { type: 'image', src: freshDuckEggsImg },
+    { type: 'image', src: saltedEggsImg },
+    { type: 'image', src: cattleFarmingImg },
+    { type: 'image', src: broilerChickenImg },
+    { type: 'image', src: farmPastureImg },
+    { type: 'image', src: duckFarmingImg },
+    { type: 'image', src: farmTractorImg },
+    { type: 'image', src: farmHarvestImg },
+    { type: 'image', src: freeRangeChickenImg },
     { type: 'video', src: 'https://6a43190294555f542c2e4a86.imgix.net/video/videoplayback%20(12).mp4' },
     { type: 'video', src: 'https://6a43190294555f542c2e4a86.imgix.net/video/videoplayback%20(11).mp4' },
     { type: 'video', src: 'https://6a43190294555f542c2e4a86.imgix.net/video/videoplayback%20(6).mp4' },
