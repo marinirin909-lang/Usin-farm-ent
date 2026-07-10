@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { PageTransition } from '../components/PageTransition';
 import farmImg from '../src/assets/images/farm_collage_1782835749991.jpg';
 import { useLanguage } from '../components/LanguageContext';
+import { TestimonialsSlider } from '../components/TestimonialsSlider';
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
@@ -111,6 +112,9 @@ const Home: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSlider />
 
       {/* Showcase Section */}
       <section className="py-24 bg-farm-900 dark:bg-gray-950 text-white relative overflow-hidden transition-colors duration-300">
