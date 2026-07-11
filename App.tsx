@@ -14,6 +14,7 @@ import Careers from './pages/Careers';
 import FAQ from './pages/FAQ';
 import { LanguageProvider } from './components/LanguageContext';
 import { ThemeProvider } from './components/ThemeContext';
+import { SalesPopup } from './components/SalesPopup';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -44,6 +45,7 @@ const App: React.FC = () => {
       <LanguageProvider>
         <BrowserRouter>
           <AnimatedRoutes />
+          <SalesPopup />
         </BrowserRouter>
       </LanguageProvider>
     </ThemeProvider>

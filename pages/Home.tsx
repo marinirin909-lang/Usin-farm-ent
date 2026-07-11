@@ -4,6 +4,7 @@ import { ArrowRight, Leaf, Sprout, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageTransition } from '../components/PageTransition';
 import farmImg from '../src/assets/images/farm_collage_1782835749991.jpg';
+import heroBg from '../src/assets/images/farm_animals_hero_1783750698415.jpg';
 import { useLanguage } from '../components/LanguageContext';
 import { TestimonialsSlider } from '../components/TestimonialsSlider';
 
@@ -32,12 +33,9 @@ const Home: React.FC = () => {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/50 z-10" />
-          <video 
-            src="/hero-video.mp4" 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
+          <img 
+            src={heroBg} 
+            alt="Farm Landscape" 
             className="w-full h-full object-cover"
           />
         </div>

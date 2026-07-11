@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { PageTransition } from '../components/PageTransition';
 import { useLanguage } from '../components/LanguageContext';
+import { ProductCalculator } from '../components/ProductCalculator';
 
 import cattleFarmingImg from '../src/assets/images/cattle_farming_1782846491474.jpg';
 import broilerChickenImg from '../src/assets/images/broiler_chicken_1782846502873.jpg';
@@ -117,6 +118,8 @@ const Products: React.FC = () => {
           ))}
         </motion.div>
       </div>
+
+      <ProductCalculator />
     </PageTransition>
   );
 };

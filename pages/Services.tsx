@@ -90,10 +90,13 @@ const Services: React.FC = () => {
             className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
           >
             <iframe 
-              src="https://gamma.app/embed/9y4blgh6uhhlyv8" 
+              src="https://prezi.com/craft/video/yq9yicnb1rpm" 
               style={{ width: "100%", height: "100%" }}
-              allow="fullscreen" 
-              title="pick deck agripulse ai"
+              frameBorder="0" 
+              allow="autoplay; fullscreen" 
+              allowFullScreen={true}
+              loading="lazy"
+              title="AgriPulse AI"
             />
           </motion.div>
         </div>

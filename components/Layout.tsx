@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Menu, X, MapPin, Phone, Mail, Leaf, Facebook, Instagram, Twitter, Globe, Sun, Moon } from 'lucide-react';
+import { Menu, X, MapPin, Phone, Mail, Leaf, Facebook, Instagram, Twitter, Globe, Sun, Moon, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import AIChat from './AIChat';
 import { useLanguage } from './LanguageContext';
 import { useTheme } from './ThemeContext';
 
-const NAV_LINKS = [
+type NavLink = {
+  name: string;
+  path?: string;
+  subLinks?: { name: string; path: string }[];
+};
+
+const NAV_LINKS: NavLink[] = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
-  { name: 'Products', path: '/products' },
+  { 
+    name: 'Products', 
+    path: '/products',
+    subLinks: [
+      { name: 'Sustainability', path: '/sustainability' },
+      { name: 'Market & News', path: '/market' },
+      { name: 'Careers', path: '/careers' },
+      { name: 'FAQ', path: '/faq' },
+    ]
+  },
   { name: 'Services', path: '/services' },
   { name: 'Gallery', path: '/gallery' },
-  { name: 'Sustainability', path: '/sustainability' },
-  { name: 'Market & News', path: '/market' },
-  { name: 'Careers', path: '/careers' },
-  { name: 'FAQ', path: '/faq' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -107,13 +118,38 @@ const Layout: React.FC = () => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
             {NAV_LINKS.map(link => (
-              <Link 
-                key={link.name} 
-                to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-farm-600 dark:hover:text-farm-400 ${location.pathname === link.path ? 'text-farm-600 dark:text-farm-400 border-b-2 border-farm-500 dark:border-farm-400' : 'text-gray-600 dark:text-gray-300'}`}
-              >
-                {t(link.name)}
-              </Link>
+              link.subLinks ? (
+                <div key={link.name} className="relative group">
+                  <Link 
+                    to={link.path || '#'}
+                    className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-farm-600 dark:hover:text-farm-400 ${location.pathname.startsWith(link.path || '') ? 'text-farm-600 dark:text-farm-400 border-b-2 border-farm-500 dark:border-farm-400' : 'text-gray-600 dark:text-gray-300'}`}
+                  >
+                    {t(link.name)}
+                    <ChevronDown size={14} className="group-hover:rotate-180 transition-transform" />
+                  </Link>
+                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-100 dark:border-gray-700 w-48 overflow-hidden flex flex-col">
+                      {link.subLinks.map(subLink => (
+                        <Link
+                          key={subLink.name}
+                          to={subLink.path}
+                          className="px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-farm-50 dark:hover:bg-gray-700 hover:text-farm-600 dark:hover:text-farm-400 transition-colors"
+                        >
+                          {t(subLink.name)}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link 
+                  key={link.name} 
+                  to={link.path!}
+                  className={`text-sm font-medium transition-colors hover:text-farm-600 dark:hover:text-farm-400 ${location.pathname === link.path ? 'text-farm-600 dark:text-farm-400 border-b-2 border-farm-500 dark:border-farm-400' : 'text-gray-600 dark:text-gray-300'}`}
+                >
+                  {t(link.name)}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -156,15 +192,29 @@ const Layout: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden fixed top-[72px] left-0 right-0 bg-white dark:bg-gray-900 border-t dark:border-gray-800 z-40 shadow-xl overflow-hidden"
           >
-            <div className="flex flex-col py-4">
+            <div className="flex flex-col py-4 max-h-[calc(100vh-72px)] overflow-y-auto">
               {NAV_LINKS.map(link => (
-                <Link 
-                  key={link.name} 
-                  to={link.path}
-                  className={`px-6 py-3 text-lg font-medium border-b border-gray-100 dark:border-gray-800 ${location.pathname === link.path ? 'text-farm-600 dark:text-farm-400 bg-farm-50 dark:bg-farm-900/50' : 'text-gray-700 dark:text-gray-300'}`}
-                >
-                  {t(link.name)}
-                </Link>
+                <div key={link.name} className="flex flex-col">
+                  <Link 
+                    to={link.path || '#'}
+                    className={`px-6 py-3 text-lg font-medium border-b border-gray-100 dark:border-gray-800 ${location.pathname === link.path ? 'text-farm-600 dark:text-farm-400 bg-farm-50 dark:bg-farm-900/50' : 'text-gray-700 dark:text-gray-300'}`}
+                  >
+                    {t(link.name)}
+                  </Link>
+                  {link.subLinks && (
+                    <div className="flex flex-col bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800">
+                      {link.subLinks.map(subLink => (
+                        <Link
+                          key={subLink.name}
+                          to={subLink.path}
+                          className={`px-10 py-3 text-base font-medium ${location.pathname === subLink.path ? 'text-farm-600 dark:text-farm-400' : 'text-gray-600 dark:text-gray-400'}`}
+                        >
+                          {t(subLink.name)}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </motion.div>
